@@ -3621,3 +3621,600 @@ button {
 
   border-color: rgba(255, 90, 90, 0.45);
 }
+
+/* =====================================================
+   PREMIUM UI POLISH
+   Visual-only overrides: preserve the existing palette,
+   content, interactions, and responsive structure.
+===================================================== */
+
+:root {
+  --ui-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-border: rgba(130, 155, 170, 0.22);
+  --ui-border-bright: rgba(24, 230, 129, 0.42);
+  --ui-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+}
+
+button,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid rgba(24, 230, 129, 0.7);
+  outline-offset: 3px;
+}
+
+.welcome-screen,
+.feedback-page,
+.thank-page,
+.admin-login-page,
+.admin-dashboard {
+  isolation: isolate;
+}
+
+.tech-grid {
+  opacity: 0.25;
+  background-size: 52px 52px;
+  mask-image: radial-gradient(ellipse at center, black 8%, transparent 82%);
+}
+
+.welcome-screen::after,
+.feedback-page::after,
+.thank-page::after,
+.admin-login-page::after,
+.admin-dashboard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(115deg, rgba(24, 230, 129, 0.025), transparent 35%, rgba(24, 230, 129, 0.018));
+}
+
+.welcome-inner {
+  width: min(780px, 92%);
+  padding: 28px 24px;
+}
+
+.welcome-logo img,
+.feedback-topbar img,
+.admin-login-logo img,
+.admin-brand img,
+.thank-logo img {
+  transition: filter 0.35s var(--ui-ease), transform 0.35s var(--ui-ease);
+}
+
+.welcome-logo img:hover,
+.feedback-topbar img:hover,
+.admin-login-logo img:hover,
+.admin-brand img:hover,
+.thank-logo img:hover {
+  filter: drop-shadow(0 0 24px rgba(24, 230, 129, 0.22));
+  transform: translateY(-2px);
+}
+
+.welcome-emblem,
+.success-ring {
+  box-shadow: 0 0 0 8px rgba(24, 230, 129, 0.025), 0 18px 60px rgba(24, 230, 129, 0.1), inset 0 0 24px rgba(24, 230, 129, 0.04);
+}
+
+.welcome-main-button,
+.submit-feedback,
+.admin-login-card button {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s var(--ui-ease), box-shadow 0.35s var(--ui-ease), filter 0.35s var(--ui-ease);
+}
+
+.welcome-main-button::before,
+.submit-feedback::before,
+.admin-login-card button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 25%, rgba(255, 255, 255, 0.22) 50%, transparent 75%);
+  transform: translateX(-120%);
+  transition: transform 0.7s var(--ui-ease);
+}
+
+.welcome-main-button:hover,
+.submit-feedback:hover:not(:disabled),
+.admin-login-card button:hover:not(:disabled) {
+  box-shadow: 0 18px 50px rgba(24, 230, 129, 0.22);
+  filter: saturate(1.08);
+}
+
+.welcome-main-button:hover::before,
+.submit-feedback:hover:not(:disabled)::before,
+.admin-login-card button:hover:not(:disabled)::before {
+  transform: translateX(120%);
+}
+
+.feedback-page {
+  padding-top: 34px;
+}
+
+.feedback-topbar,
+.admin-header {
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(100, 125, 140, 0.12);
+}
+
+.feedback-label,
+.admin-status {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16), inset 0 1px rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(14px);
+}
+
+.feedback-heading h1,
+.welcome-inner h1,
+.admin-title h1,
+.thank-content h1 {
+  text-shadow: 0 14px 45px rgba(0, 0, 0, 0.28);
+}
+
+.feedback-row {
+  padding: 32px 0;
+  border-bottom-color: rgba(100, 125, 140, 0.14);
+}
+
+.step-number {
+  background: linear-gradient(145deg, rgba(24, 230, 129, 0.1), rgba(24, 230, 129, 0.015));
+  box-shadow: inset 0 0 18px rgba(24, 230, 129, 0.035);
+  transition: transform 0.3s var(--ui-ease), background 0.3s var(--ui-ease);
+}
+
+.feedback-row:hover .step-number {
+  transform: translateY(-2px);
+  background: rgba(24, 230, 129, 0.12);
+}
+
+.feedback-control input,
+.textarea-control textarea,
+.search-box,
+.feedback-filters select {
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.025), 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: border-color 0.3s var(--ui-ease), box-shadow 0.3s var(--ui-ease), transform 0.3s var(--ui-ease);
+}
+
+.feedback-control input:hover,
+.textarea-control textarea:hover,
+.search-box:hover,
+.feedback-filters select:hover {
+  border-color: rgba(130, 155, 170, 0.4);
+}
+
+.feedback-control input:focus,
+.textarea-control textarea:focus,
+.search-box:focus-within {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18), 0 0 0 3px rgba(24, 230, 129, 0.045);
+}
+
+.experience-card,
+.category-card,
+.analytics-card,
+.admin-stat-card,
+.feedback-item,
+.admin-login-card,
+.modal-card {
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.025), var(--ui-shadow);
+  transition: transform 0.35s var(--ui-ease), border-color 0.35s var(--ui-ease), box-shadow 0.35s var(--ui-ease), background 0.35s var(--ui-ease);
+}
+
+.experience-card:hover,
+.category-card:hover,
+.feedback-item:hover,
+.admin-stat-card:hover,
+.analytics-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(24, 230, 129, 0.38);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.035), 0 24px 65px rgba(0, 0, 0, 0.34), 0 0 28px rgba(24, 230, 129, 0.045);
+}
+
+.experience-card.selected,
+.category-card.selected {
+  box-shadow: inset 0 0 26px rgba(24, 230, 129, 0.045), 0 16px 45px rgba(24, 230, 129, 0.08);
+}
+
+.admin-dashboard {
+  background: radial-gradient(circle at 80% 0%, rgba(24, 230, 129, 0.035), transparent 28%), #02080c;
+}
+
+.admin-grid-background {
+  opacity: 0.18;
+}
+
+.admin-content {
+  padding-top: 70px;
+}
+
+.admin-stat-card,
+.analytics-card {
+  background: linear-gradient(145deg, rgba(8, 22, 30, 0.92), rgba(3, 11, 17, 0.96));
+}
+
+.admin-action-button,
+.admin-logout-button,
+.refresh-button,
+.pagination-button,
+.modal-button,
+.admin-retry {
+  transition: transform 0.3s var(--ui-ease), border-color 0.3s var(--ui-ease), color 0.3s var(--ui-ease), background 0.3s var(--ui-ease), box-shadow 0.3s var(--ui-ease);
+}
+
+.admin-action-button:hover,
+.admin-logout-button:hover,
+.refresh-button:hover,
+.pagination-button:hover:not(:disabled),
+.admin-retry:hover,
+.modal-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
+}
+
+.toast {
+  backdrop-filter: blur(18px);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45), inset 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.modal-overlay {
+  background: rgba(2, 8, 12, 0.72);
+  backdrop-filter: blur(12px);
+}
+
+@media (max-width: 700px) {
+  .welcome-inner {
+    padding: 20px 12px;
+  }
+
+  .welcome-main-button {
+    min-width: min(330px, 100%);
+  }
+
+  .welcome-steps {
+    gap: 14px;
+  }
+
+  .feedback-row {
+    padding: 25px 0;
+  }
+
+  .feedback-heading h1 {
+    letter-spacing: -3px;
+  }
+
+  .admin-content {
+    padding-top: 48px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =====================================================
+   PUBLIC EXPERIENCE — RECOMPOSED LAYOUT
+   A card-led, premium scan-to-feedback experience.
+===================================================== */
+
+.welcome-screen {
+  padding: 32px 20px 74px;
+}
+
+.welcome-inner {
+  width: min(650px, 100%);
+  padding: 52px 54px 46px;
+  border: 1px solid rgba(130, 155, 170, 0.2);
+  border-radius: 30px;
+  background: linear-gradient(145deg, rgba(8, 22, 29, 0.74), rgba(2, 9, 14, 0.78));
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.35), inset 0 1px rgba(255, 255, 255, 0.045), 0 0 80px rgba(24, 230, 129, 0.035);
+  backdrop-filter: blur(22px);
+}
+
+.welcome-logo {
+  margin-bottom: 34px;
+}
+
+.welcome-logo img {
+  width: 225px;
+}
+
+.welcome-tag {
+  margin-bottom: 22px;
+  padding: 9px 14px;
+  border: 1px solid rgba(24, 230, 129, 0.16);
+  border-radius: 999px;
+  background: rgba(24, 230, 129, 0.045);
+}
+
+.welcome-emblem {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 25px;
+  border-radius: 18px;
+}
+
+.welcome-inner h1 {
+  font-size: clamp(48px, 7vw, 78px);
+  letter-spacing: -4px;
+}
+
+.welcome-description {
+  max-width: 360px;
+  margin: 24px auto 0;
+  font-size: 13px;
+}
+
+.welcome-main-button {
+  width: 100%;
+  min-width: 0;
+  height: 58px;
+  margin-top: 32px;
+  border-radius: 15px;
+}
+
+.welcome-steps {
+  width: 100%;
+  justify-content: center;
+  margin-top: 32px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(100, 125, 140, 0.14);
+}
+
+.welcome-step span {
+  width: 30px;
+  height: 30px;
+  background: rgba(24, 230, 129, 0.035);
+}
+
+.welcome-footer {
+  bottom: 24px;
+}
+
+.feedback-page {
+  padding: 24px 20px 72px;
+}
+
+.feedback-topbar {
+  width: min(940px, 100%);
+  margin-bottom: 48px;
+  padding: 0 0 20px;
+}
+
+.feedback-topbar img {
+  width: 190px;
+}
+
+.feedback-wrapper {
+  width: min(840px, 100%);
+}
+
+.feedback-heading {
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.feedback-heading > p {
+  display: inline-flex;
+  margin-bottom: 17px;
+  padding: 8px 12px;
+  border: 1px solid rgba(24, 230, 129, 0.16);
+  border-radius: 999px;
+  background: rgba(24, 230, 129, 0.045);
+}
+
+.feedback-heading h1 {
+  font-size: clamp(42px, 7vw, 68px);
+  letter-spacing: -4px;
+  line-height: 0.96;
+}
+
+.heading-line {
+  width: 54px;
+  height: 3px;
+  margin: 24px auto 0;
+  border-radius: 999px;
+  background: var(--green);
+  box-shadow: 0 0 18px rgba(24, 230, 129, 0.45);
+}
+
+.feedback-wrapper form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.feedback-row {
+  display: grid;
+  grid-template-columns: 235px minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+  margin: 0;
+  padding: 23px;
+  border: 1px solid rgba(100, 125, 140, 0.19);
+  border-radius: 20px;
+  background: linear-gradient(145deg, rgba(7, 19, 26, 0.83), rgba(2, 9, 14, 0.9));
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.025), 0 18px 45px rgba(0, 0, 0, 0.16);
+  transition: border-color 0.35s var(--ui-ease), box-shadow 0.35s var(--ui-ease), transform 0.35s var(--ui-ease);
+}
+
+.feedback-row:hover {
+  border-color: rgba(24, 230, 129, 0.27);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.035), 0 24px 55px rgba(0, 0, 0, 0.24), 0 0 30px rgba(24, 230, 129, 0.025);
+  transform: translateY(-2px);
+}
+
+.feedback-question {
+  gap: 13px;
+}
+
+.feedback-question h2 {
+  font-size: 13px;
+}
+
+.feedback-question p {
+  max-width: 190px;
+  font-size: 9px;
+}
+
+.feedback-control input {
+  height: 55px;
+  border-radius: 13px;
+  background: rgba(4, 13, 19, 0.72);
+}
+
+.experience-rating,
+.category-grid {
+  gap: 10px;
+}
+
+.experience-card {
+  min-height: 112px;
+  border-radius: 14px;
+  background: rgba(4, 13, 19, 0.72);
+}
+
+.experience-card:hover,
+.category-card:hover {
+  transform: translateY(-4px);
+}
+
+.textarea-control textarea {
+  min-height: 128px;
+  border-radius: 13px;
+  background: rgba(4, 13, 19, 0.72);
+}
+
+.category-card {
+  min-height: 88px;
+  border-radius: 14px;
+  background: rgba(4, 13, 19, 0.72);
+}
+
+.category-icon {
+  border-radius: 11px;
+}
+
+.submit-feedback {
+  height: 60px;
+  margin-top: 8px;
+  border-radius: 15px;
+  letter-spacing: 0.1px;
+}
+
+.required-text {
+  margin-top: 2px;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .welcome-screen {
+    padding: 18px 14px 62px;
+  }
+
+  .welcome-inner {
+    padding: 38px 22px 30px;
+    border-radius: 24px;
+  }
+
+  .welcome-inner h1 {
+    font-size: clamp(44px, 14vw, 64px);
+    letter-spacing: -3px;
+  }
+
+  .welcome-steps {
+    gap: 12px;
+  }
+
+  .welcome-step {
+    gap: 7px;
+  }
+
+  .welcome-step p {
+    font-size: 8px;
+  }
+
+  .step-divider {
+    width: 20px;
+  }
+
+  .feedback-page {
+    padding: 18px 14px 55px;
+  }
+
+  .feedback-topbar {
+    margin-bottom: 34px;
+  }
+
+  .feedback-topbar img {
+    width: 155px;
+  }
+
+  .feedback-label {
+    padding: 8px 10px;
+    font-size: 8px;
+  }
+
+  .feedback-heading h1 {
+    font-size: clamp(40px, 13vw, 58px);
+    letter-spacing: -3px;
+  }
+
+  .feedback-wrapper form {
+    gap: 12px;
+  }
+
+  .feedback-row {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 18px;
+    border-radius: 17px;
+    align-items: stretch;
+  }
+
+  .feedback-question p {
+    max-width: none;
+  }
+
+  .experience-card {
+    min-height: 100px;
+  }
+
+  .category-card {
+    min-height: 78px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 430px) {
+  .experience-rating {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .experience-card {
+    min-height: 88px;
+    gap: 7px;
+  }
+
+  .experience-emoji {
+    font-size: 25px;
+  }
+
+  .experience-label {
+    font-size: 7px;
+  }
+}
