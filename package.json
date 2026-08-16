@@ -1,0 +1,13 @@
+{
+  "name": "projectmate-qr-feedback-tools",
+  "private": true,
+  "scripts": {
+    "generate:qr": "node scripts/generate-qr.js"
+  },
+  "devDependencies": {
+    "qrcode": "^1.5.4"
+  },
+  "dependencies": {
+    "mongodb": "^7.5.0"
+  }
+}
