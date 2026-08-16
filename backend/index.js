@@ -1,5 +1,5 @@
 const express = require("express");
-const cors = require("cors");
+import cors from 'cors';
 const dotenv = require("dotenv");
 const helmet = require("helmet");
 const { rateLimit } = require("express-rate-limit");
@@ -29,17 +29,11 @@ app.use(morgan(process.env.NODE_ENV === "production" ? "short" : "combined"));
 // CORS
 // ==========================================
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
-
-      return callback(new Error("Origin is not allowed by CORS"));
-    },
-  })
-);
+app.use(cors({
+  origin: process.env.CORS_ORIGIN || '*',
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+}));
 
 app.use(helmet());
 
