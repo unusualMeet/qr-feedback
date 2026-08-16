@@ -4218,3 +4218,311 @@ select:focus-visible {
     font-size: 7px;
   }
 }
+
+/* =====================================================
+   RESPONSIVE + MOTION REFINEMENT
+===================================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.welcome-screen,
+.feedback-page,
+.thank-page,
+.admin-login-page,
+.admin-dashboard {
+  min-height: 100svh;
+}
+
+.feedback-page,
+.admin-dashboard {
+  overflow-x: clip;
+}
+
+.feedback-wrapper,
+.feedback-topbar,
+.admin-content,
+.admin-header,
+.admin-footer {
+  max-width: 100%;
+}
+
+.feedback-control,
+.experience-rating,
+.category-grid,
+.feedback-main,
+.feedback-question {
+  min-width: 0;
+}
+
+.feedback-control input,
+.textarea-control textarea,
+.search-box input,
+.feedback-filters select,
+.admin-login-card input {
+  max-width: 100%;
+}
+
+.welcome-main-button,
+.submit-feedback,
+.admin-login-card button,
+.admin-action-button,
+.admin-logout-button,
+.refresh-button,
+.modal-button,
+.pagination-button,
+.category-card,
+.experience-card {
+  touch-action: manipulation;
+}
+
+.welcome-main-button:active:not(:disabled),
+.submit-feedback:active:not(:disabled),
+.admin-login-card button:active:not(:disabled),
+.admin-action-button:active,
+.admin-logout-button:active,
+.refresh-button:active,
+.category-card:active,
+.experience-card:active,
+.pagination-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.feedback-row,
+.experience-card,
+.category-card,
+.admin-stat-card,
+.analytics-card,
+.feedback-item,
+.modal-card,
+.toast {
+  will-change: transform;
+}
+
+@media (max-width: 980px) and (min-width: 721px) {
+  .feedback-page {
+    padding-inline: 28px;
+  }
+
+  .feedback-wrapper,
+  .feedback-topbar {
+    width: min(760px, 100%);
+  }
+
+  .feedback-row {
+    grid-template-columns: 195px minmax(0, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .experience-card {
+    min-height: 104px;
+  }
+
+  .category-card {
+    padding: 13px;
+  }
+
+  .welcome-inner {
+    width: min(620px, calc(100% - 24px));
+  }
+}
+
+@media (max-width: 720px) {
+  .welcome-screen,
+  .feedback-page {
+    min-height: 100svh;
+  }
+
+  .welcome-screen {
+    align-items: flex-start;
+    padding-top: clamp(28px, 9vh, 76px);
+    padding-bottom: 76px;
+  }
+
+  .welcome-inner {
+    width: 100%;
+  }
+
+  .welcome-footer {
+    bottom: 16px;
+    max-width: calc(100% - 28px);
+    gap: 10px;
+    font-size: 7px;
+    letter-spacing: 1.2px;
+  }
+
+  .welcome-footer div {
+    width: 20px;
+  }
+
+  .feedback-topbar {
+    gap: 14px;
+  }
+
+  .feedback-topbar img {
+    max-width: 58%;
+    object-fit: contain;
+  }
+
+  .feedback-label {
+    white-space: nowrap;
+  }
+
+  .feedback-heading {
+    margin-bottom: 24px;
+  }
+
+  .feedback-question {
+    align-items: flex-start;
+  }
+
+  .feedback-control input,
+  .textarea-control textarea {
+    font-size: 16px;
+  }
+
+  .feedback-control input {
+    height: 54px;
+  }
+
+  .textarea-control textarea {
+    min-height: 122px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .category-info {
+    min-width: 0;
+  }
+
+  .category-info h3,
+  .category-info p {
+    overflow-wrap: anywhere;
+  }
+
+  .submit-feedback {
+    min-height: 58px;
+  }
+
+  .toast-container {
+    top: 12px;
+    right: 12px;
+    left: 12px;
+  }
+
+  .toast {
+    min-width: 0;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+@media (max-width: 520px) {
+  .welcome-inner {
+    padding-inline: 18px;
+  }
+
+  .welcome-logo img {
+    width: min(205px, 72vw);
+  }
+
+  .welcome-description {
+    font-size: 12px;
+  }
+
+  .welcome-description br,
+  .thank-description br {
+    display: none;
+  }
+
+  .feedback-topbar {
+    align-items: flex-start;
+  }
+
+  .feedback-topbar img {
+    width: 145px;
+  }
+
+  .feedback-heading h1 {
+    font-size: clamp(38px, 12vw, 52px);
+  }
+
+  .feedback-heading > p {
+    font-size: 8px;
+    letter-spacing: 2px;
+  }
+
+  .feedback-row {
+    padding: 16px;
+  }
+
+  .step-number {
+    width: 32px;
+    height: 32px;
+  }
+
+  .experience-card {
+    min-height: 84px;
+  }
+
+  .category-card {
+    align-items: flex-start;
+    min-height: 84px;
+    gap: 9px;
+  }
+
+  .category-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .category-info h3 {
+    font-size: 10px;
+  }
+
+  .category-info p {
+    font-size: 7px;
+  }
+
+  .category-check {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .welcome-steps {
+    gap: 6px;
+  }
+
+  .welcome-step p {
+    max-width: 75px;
+    line-height: 1.25;
+  }
+
+  .feedback-page {
+    padding-inline: 10px;
+  }
+
+  .feedback-label {
+    padding-inline: 8px;
+    font-size: 7px;
+  }
+
+  .feedback-row {
+    padding: 14px;
+  }
+
+  .category-grid {
+    gap: 7px;
+  }
+}
