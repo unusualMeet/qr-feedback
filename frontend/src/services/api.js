@@ -1,5 +1,4 @@
-const API_URL = (import.meta.env.VITE_API_URL || "/api").replace(/\/$/, "");
-
+const API_URL = (import.meta.env.VITE_API_URL || "https://qr-feedback-bres.onrender.com/api").replace(/\/$/, "");
 export const apiRequest = async (path, options = {}) => {
   const response = await fetch(`${API_URL}${path}`, options);
   const data = await response.json().catch(() => ({}));
